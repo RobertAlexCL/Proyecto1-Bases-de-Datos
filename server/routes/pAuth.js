@@ -25,7 +25,7 @@ router.post("/registrar", async (req, res) => {
       
       //Ingresar el usuario a la base de datos
       let nuevo_usuario = await pool.query(
-        "INSERT INTO users (user_name, Contraseña) VALUES ($1, $2, $3) RETURNING *",
+        "INSERT INTO users (user_name, Contraseña) VALUES ($1, $2) RETURNING *",
         [user_name, Contraseña]
       );
   
