@@ -4,7 +4,7 @@ const pool = require("../db");
 
 //Registrando
 
-router.post("/registrar", async (req, res) => {
+router.post("/register", async (req, res) => {
     // Destructurar el rq.body
     const { user_name, Contraseña} = req.body;
   
@@ -34,3 +34,35 @@ router.post("/registrar", async (req, res) => {
       res.status(500).send("Error en el server");
     }
   });
+
+  router.post("/login", async (req, res) => {
+    // Destructurar el rq.body
+    const { user_name, Contraseña} = req.body;
+  
+    try {
+      // Ver si el usuario existe
+      const user = await pool.query("SELECT * FROM Usuario WHERE user_name = $1", [
+        user_name
+      ]);
+  
+      if (user.rows.length === 0) {
+        return res.status(401).json("Usuario invalido");
+      }
+      
+      //Ver si la contraseña es la indicada
+      const validPassword = await bcrypt.compare(
+        Contraseña,
+        user.rows[0].user_password
+      );
+  
+      if (!validPassword) {
+        return res.status(401).json("Contraseña invalida");
+      }
+      
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Error en el server");
+    }
+  });
+  
+  
