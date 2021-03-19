@@ -1,0 +1,66 @@
+
+.container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: .2fr 1.5fr 1.2fr .8fr;
+  grid-template-areas:
+    "nav nav nav nav"
+    "sidebar main main main"
+    "sidebar content1 content2 content3"
+    "sidebar footer footer footer"
+
+  grid-gap: 0.2rem;
+
+
+  .nav {
+    background-color: #34cfeb;
+    grid-area: nav;
+    border-radius: 5px;
+    padding-top: 5px;
+  }
+
+  .main {
+    background-color: #34cfeb;
+    grid-area: main;
+    border-radius: 5px;
+    padding-top: 5px;
+  }
+
+  #sidebar {
+    background-color: #34cfeb;
+    grid-area: sidebar;
+    border-radius: 5px;
+    padding-top: 5px;
+  }
+
+  #content1 {
+    background-color: #34cfeb;
+    grid-area: content1;
+    border-radius: 5px;
+    padding-top: 5px;
+  }
+
+  #content2 {
+    background-color: #34cfeb;
+    grid-area: content2;
+    border-radius: 5px;
+    padding-top: 5px;
+  }
+
+  #content3 {
+    background-color: #34cfeb;
+    grid-area: content3;
+    border-radius: 5px;
+    padding-top: 5px;
+  }
+
+  .footer {
+    background-color: #34cfeb;
+    grid-area: footer;
+    border-radius: 5px;
+    padding-top: 5px;
+  }
+
+
+}
