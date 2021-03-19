@@ -28,6 +28,8 @@ router.post("/register", async (req, res) => {
         "INSERT INTO users (user_name, Contraseña) VALUES ($1, $2) RETURNING *",
         [user_name, Contraseña]
       );
+
+      
   
     } catch (err) {
       console.error(err.message);
